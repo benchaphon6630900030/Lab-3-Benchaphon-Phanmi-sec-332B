@@ -1,0 +1,31 @@
+#Enter 1 equations
+
+sum = "A*(B+C)"  #Example 
+
+stack = []
+
+operators = set(['+', '-', '*', '/', '^'])
+
+sum = sum[::-1]
+
+for i in sum:
+
+	if i in operators:
+
+		a = stack.pop()
+		b = stack.pop()
+
+		temp = a+b+i
+		stack.append(temp)
+
+	else:
+		stack.append(i)
+
+print(*stack)
+
+#equations
+#A+B
+#A-B
+#A+B-c
+#(A+B)*C
+#A*(B+C)
